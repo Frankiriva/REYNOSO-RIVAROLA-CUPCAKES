@@ -120,7 +120,7 @@ def completarborrarmenu():
 @app.route("/CompletarModificarCliente",methods=["POST","GET"])
 def completarmodificarcliente():
     queja=request.form.get("queja")
-    pedido=request.form.get("pedido")
+    pedido=request.form.get("pedido") ##aa
     id=request.form.get("id")
     unCliente = Cliente()
     unitaSucursal = Sucursal()
