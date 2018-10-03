@@ -1,0 +1,56 @@
+<html>
+	<head>
+		<link rel="icon" type="image/png" href="https://images.vexels.com/media/users/3/129727/isolated/preview/6bcb1a197858bb4e14168d4f906750e8-icono-del-c-rculo-de-la-zanahoria-by-vexels.png">
+		<title>Seaeat-Argentina</title>
+	 <link href="css/bootstrap.min.css" rel="stylesheet">
+	 <link rel="stylesheet" href="main.css">
+	 <meta name="viewport" content="width=device-width, initial-scale=1">
+	 <meta charset="utf-8">
+	  <style type="text/css">
+			.class1{
+					margin-left:5px;
+					margin-top:10px;
+					background:white;
+					width: 350px;
+					height: 38px;
+					border: 8px double black;
+					}
+		</style>
+	</head>
+
+		 <center><h1 class="class1">
+			Sistema de Quejas
+
+		</h1></center>
+
+		<body  bgcolor="White" text="23232B" background="https://artfil.ca/wp-content/uploads/2016/07/degradado_de_color_1920x1200_126-1.jpeg">
+		<div class="contenedor">
+			<div class="contenido">
+
+				<center>
+                    Ingrese su queja &nbsp &nbsp
+                    <input class="input" type="text" name="queja" placeholder="&#128100; Queja" required autofocus>
+                    <br>
+                    <br>
+                    Elija la sucursal &nbsp &nbsp
+
+
+
+                    <select name="sucursal" id="sucursal" required>
+                        {%for item in listasucursal%}
+                        <option value ="a{{item.idsucursal}}">-item.nombre_sucursal-</option>
+                        {%endfor%}
+                    </select>
+
+
+
+                    <br>
+                    <br>
+                    <input type="submit" value="Agregar">
+
+
+			</div>
+		</div>
+		</center>
+	</body>
+</html>

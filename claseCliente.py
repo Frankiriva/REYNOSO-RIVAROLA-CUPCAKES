@@ -21,7 +21,7 @@ class Cliente(object):
         DB().run ("DELETE FROM Clientes WHERE idCliente= '"+id+"';")
 
     def UpdateCliente(self,queja,pedido,id):
-        DB().run("UPDATE Clientes SET QuejasCliente= '"+queja+"',Menupedido= '"+pedido+"' WHERE idCliente='"+id+"';")
+        DB().run("UPDATE Clientes SET QuejasCliente= '"+queja+"',Menupedido= '"+pedido+"' WHERE idCliente='"+str(id)+"';")
 
     def DeserializarCliente(self, DiccionarioCliente):
         self.idCliente= DiccionarioCliente["idCliente"]

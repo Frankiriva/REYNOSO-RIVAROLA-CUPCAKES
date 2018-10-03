@@ -18,6 +18,7 @@ app = Flask(__name__)
 def Inicio():
     return render_template("Inicio.html")
 
+
 @app.route("/Empleados", methods=["GET"])
 def empleados():
     return render_template("Empleados.html")
@@ -40,15 +41,7 @@ def agregarempleados():
 
 @app.route("/CompletarAgregarEmpleado", methods=["POST", "GET"])
 def completaragregarempleado():
-    nombre= request.form.get("nombre")
-    apellido= request.form.get("apellido")
-    dni = request.form.get("dni")
-    sucursal = request.form.get("sucursal")
-    unEmpleado = Empleado()
-    unitaSucursal = Sucursal()
-    unitaSucursal.getSucursal(sucursal)
-    unEmpleado.AgregarEmpleado(nombre,apellido,dni,sucursal)
-
+    #FALTA
     return redirect("/AgregarEmpleado")
 
 @app.route("/CompletarAgregarCliente", methods=["POST", "GET"])
@@ -120,7 +113,7 @@ def completarborrarmenu():
 @app.route("/CompletarModificarCliente",methods=["POST","GET"])
 def completarmodificarcliente():
     queja=request.form.get("queja")
-    pedido=request.form.get("pedido") ##aa
+    pedido=request.form.get("pedido")
     id=request.form.get("id")
     unCliente = Cliente()
     unitaSucursal = Sucursal()
@@ -128,6 +121,39 @@ def completarmodificarcliente():
     unCliente.UpdateCliente(queja, pedido, id)
 
     return redirect("/ModificarCliente")
+
+@app.route("/CompletarModificarEmpleado",methods=["POST","GET"])
+def completarmodificarempleado():
+    Nombre=request.form.get("nombre")
+    Apellido=request.form.get("apellido")
+    DNI=request.form.get("dni")
+    id=request.form.get("id")
+    unEmpleado = Empleado()
+    unEmpleado.UpdateEmpleado(Nombre, Apellido, DNI, id)
+
+    return redirect("/ModificarEmpleados")
+
+@app.route("/CompletarModificarSucursal", methods=["POST","GET"])
+def completarmoficarsucursal():
+    nombre=request.form.get("nombre")
+    direccion=request.form.get("direccion")
+    id=request.form.get("id")
+    unitaSucursal = Sucursal()
+    unitaSucursal.UpdateSucursal(nombre, direccion, id)
+
+    return redirect("/ModificarSucursal")
+
+@app.route("/CompletarModificarMenu" , methods=["POST","GET"])
+def completarmodificarmenu():
+    id=request.form.get("id")
+    menu=request.form.get("menu")
+    precio=request.form.get("precio")
+    tipo_menu=request.form.get("tipo_menu")
+    unMenu = MenuComida()
+    unMenu.UpdateMenu(menu, precio, tipo_menu, id)
+
+    return redirect("/ModificarMenu")
+
 
 @app.route("/ModificarEmpleados", methods=["GET"])
 def modificarempleados():

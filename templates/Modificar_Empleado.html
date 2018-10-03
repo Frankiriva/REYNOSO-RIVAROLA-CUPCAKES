@@ -6,12 +6,12 @@
 <body>
 
   <div class="container">
-    <form class="form_reg" action="">
-      <input class="input" type="text" placeholder="&#128100; ID a modificar" required autofocus>
-      <input class="input" type="text" placeholder="&#128100; Nuevo DNI" required autofocus>
-      <input class="input" type="text" placeholder="&#128100; Nuevo nombre" required autofocus>
-      <input class="input" type="text" placeholder="&#128100; Nuevo apellido" required autofocus>
-      <a href=""><input type="button" value="Modificar"></a>
+    <form class="form_reg" method="POST" action="/CompletarModificarEmpleado">
+      <input class="input" type="text" name="id" placeholder="&#128100; ID a modificar" required autofocus>
+      <input class="input" type="text" name="dni" placeholder="&#128100; Nuevo DNI" required autofocus>
+      <input class="input" type="text" name="nombre" placeholder="&#128100; Nuevo nombre" required autofocus>
+      <input class="input" type="text" name="apellido" placeholder="&#128100; Nuevo apellido" required autofocus>
+      <input type="submit" value="Modificar">
       <a href="/inicio"><input type="button" value="Volver al inicio"></a>
       <a href="/Empleados"><input type="button" value="Volver a  las opciones de Empleados"></a>
 
