@@ -11,24 +11,28 @@ conexion=DB()
 menu=MenuComida()
 unEmpleado=Empleado()
 UnitaSucursal=Sucursal()
+Unaqueja=Queja()
 
 app = Flask(__name__)
 
-@app.route("/Quejas",methods=["GET"])
+
+@app.route("/Quejas",methods=["GET","POST"])
 def quejitas():
-    return render_template("Quejas.html")
+    lista=[]
+    Seleccionar_Sucursal = DB().run("SELECT * FROM Sucursal;")
+    for item in Seleccionar_Sucursal:
+            UnaQueja=UnaQueja()
+            UnaQueja.deserealizar(item)
+            lista.append(UnaQueja)
+    return render_template("Quejas.html",lista=lista)
 
-Grab= DB.run("select * from sucursales")
-
-listasucursales=[]
-
-for item in Grab:
-
+def deserealizar(self):
+    self.idSucursal= DiccionarioSucursal["idSucursal"]
+    self.NombreSucursal= DiccionarioSucursal["NombreSucursal"]
+    self.DireccionSucursal= DiccionarioSucursal["DireccionSucursal"]
 
 
-
-
-
+#HACER DESPLAZABLE DE SUCURSALES
 
 
 if __name__ == "__main__":

@@ -28,24 +28,22 @@
 			<div class="contenido">
 
 				<center>
-                    Ingrese su queja &nbsp &nbsp
+					<br><br> <br><br> <br><br>
+                    Ingrese su queja &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
                     <input class="input" type="text" name="queja" placeholder="&#128100; Queja" required autofocus>
-                    <br>
-                    <br>
-                    Elija la sucursal &nbsp &nbsp
+                    <br><br>
+					Ingrese el Menu pedido &nbsp &nbsp
+					<input class="input" type="text" name="menu" placeholder="&#128100; Menu pedido" required autofocus>
+					<br><br>
+					Elija la sucursal &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
 
-
-
-                    <select name="sucursal" id="sucursal" required>
-                        {%for item in listasucursal%}
-                        <option value ="a{{item.idsucursal}}">-item.nombre_sucursal-</option>
+					<select name="sucursal" id="sucursal" required>
+                        {%for item in lista%}
+                        <option value ="A{{item.idsucursal}}">-item.NombreSucursal -</option>
                         {%endfor%}
-                    </select>
+					</select>
 
-
-
-                    <br>
-                    <br>
+					<br><br>
                     <input type="submit" value="Agregar">
 
 

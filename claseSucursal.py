@@ -6,6 +6,7 @@ class Sucursal(object):
     DireccionSucursal= None
 
 
+
     def AgregarSucursal(self,nombre,direccion):
         self.NombreSucursal=nombre
         self.DireccionSucursal= direccion
