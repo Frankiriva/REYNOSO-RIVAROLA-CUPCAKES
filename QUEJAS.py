@@ -6,34 +6,48 @@ from claseEmpleado import Empleado
 from claseSucursal import Sucursal
 
 DB().SetConection('127.0.0.1', 'root', 'alumno', 'mydb')
-
 conexion=DB()
 menu=MenuComida()
 unEmpleado=Empleado()
 UnitaSucursal=Sucursal()
-Unaqueja=Queja()
+
+dictSucursal = conexion.run("SELECT * FROM Sucursal")
+
+listaSucursal = []
+
+for item in dictSucursal:
+    objSucursal = Sucursal()
+    objSucursal.getSucursal(item["idSucursal"])
+    listaSucursal.append(objSucursal)
+
+
+class Quejitas(object):
+    idSucursal = None
+    NombreSucursal = None
+    DireccionSucursal = None
+
+    def deserealizar(self, DiccionarioSucursal):
+        self.idSucursal = DiccionarioSucursal["idSucursal"]
+        self.NombreSucursal = DiccionarioSucursal["NombreSucursal"]
+        self.DireccionSucursal = DiccionarioSucursal["DireccionSucursal"]
+
+
+
 
 app = Flask(__name__)
 
 
 @app.route("/Quejas",methods=["GET","POST"])
-def quejitas():
-    lista=[]
-    Seleccionar_Sucursal = DB().run("SELECT * FROM Sucursal;")
-    for item in Seleccionar_Sucursal:
-            UnaQueja=UnaQueja()
-            UnaQueja.deserealizar(item)
-            lista.append(UnaQueja)
-    return render_template("Quejas.html",lista=lista)
+def AgregarQueja():
+    queja = request.form.get("queja")
+    menu = request.form.get("menu")
+    sucursal=request.form.get("sucursal")
 
-def deserealizar(self):
-    self.idSucursal= DiccionarioSucursal["idSucursal"]
-    self.NombreSucursal= DiccionarioSucursal["NombreSucursal"]
-    self.DireccionSucursal= DiccionarioSucursal["DireccionSucursal"]
+    DB.run("INSERT INTO Clientes VALUES (NULL,'"+queja+"','"+menu+"','"+sucursal+"');")
 
-
-#HACER DESPLAZABLE DE SUCURSALES
+    return render_template("Quejas.html",lista=listaSucursal)
 
 
 if __name__ == "__main__":
     app.run(debug=True)
+
