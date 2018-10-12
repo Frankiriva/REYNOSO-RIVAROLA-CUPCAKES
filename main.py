@@ -5,6 +5,7 @@ from claseMenu import MenuComida
 from claseEmpleado import Empleado
 from claseSucursal import Sucursal
 
+
 DB().SetConection('127.0.0.1', 'root', 'alumno', 'mydb')
 
 conexion=DB()
@@ -26,6 +27,7 @@ def empleados():
 @app.route("/Clientes", methods=["GET"])
 def clientes():
     return render_template("Clientes.html")
+
 
 @app.route("/Menu", methods=["GET"])
 def menu():

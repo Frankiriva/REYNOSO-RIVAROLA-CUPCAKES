@@ -26,4 +26,4 @@ class MenuComida(object):
         self.NombreMenu=DiccionarioMenu["NombreMenu"]
         self.PrecioMenu=DiccionarioMenu["PrecioMenu"]
         self.TipoMenu=DiccionarioMenu["TipoMenu"]
-        self.Sucursal=DiccionarioMenu[Sucursal]
+        self.Sucursal=DiccionarioMenu["Sucursal"]

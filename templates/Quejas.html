@@ -1,7 +1,7 @@
 <html>
 	<head>
-		<link rel="icon" type="image/png" href="https://cdn.onlinewebfonts.com/svg/img_546235.png">
-		<title>Quejas-FMBURGUER</title>
+		<link rel="icon" type="image/png" href="https://images.vexels.com/media/users/3/136309/isolated/preview/c6539229ad5c57c313d95711a1e676db-logo-hamburguesa-comida-r-pida-by-vexels.png">
+		<title>FM Burguer- Quejas</title>
 	 <link href="css/bootstrap.min.css" rel="stylesheet">
 	 <link rel="stylesheet" href="main.css">
 	 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,31 +24,33 @@
 		</h1></center>
 
 		<body  bgcolor="White" text="23232B" background="https://artfil.ca/wp-content/uploads/2016/07/degradado_de_color_1920x1200_126-1.jpeg">
-		<div class="contenedor">
-			<div class="contenido">
+		<form action="/QuejasCompleto" method="post">
+			<div class="contenedor">
+				<div class="contenido">
 
-				<center>
-					<br><br> <br><br> <br><br>
-                    Ingrese su queja &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                    <input class="input" type="text" name="queja" placeholder="&#128100; Queja" required autofocus>
-                    <br><br>
-					Ingrese el Menu pedido &nbsp &nbsp
-					<input class="input" type="text" name="menu" placeholder="&#128100; Menu pedido" required autofocus>
-					<br><br>
-					Elija la sucursal &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+					<center>
+						<br><br> <br><br> <br><br>
+						Ingrese su queja &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+						<input class="input" type="text" name="queja" placeholder="&#128100; Queja" required autofocus>
+						<br><br>
+						Ingrese el Menu pedido &nbsp &nbsp
+						<input class="input" type="text" name="menu" placeholder="&#128100; Menu pedido" required autofocus>
+						<br><br>
+						Elija la sucursal &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
 
-					<select name="sucursal" id="sucursal" required>
-                        {%for item in lista%}
-                        <option value ="A{{item.idsucursal}}">{{ item.NombreSucursal }}</option>
-                        {%endfor%}
-					</select>
+						<select name="sucursal" id="sucursal" required>
+							{%for item in lista%}
+							<option value ="{{item.idSucursal}}">{{ item.NombreSucursal }}</option>
+							{%endfor%}
+						</select>
 
-					<br><br>
-                    <input type="submit" value="Agregar">
+						<br><br>
+						<input type="submit" value="Agregar">
 
 
-			</div>
-		</div>
+					</div>
+				</div>
+			</form>
 		</center>
 	</body>
 </html>

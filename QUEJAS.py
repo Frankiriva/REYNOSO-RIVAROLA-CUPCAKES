@@ -11,6 +11,7 @@ menu=MenuComida()
 unEmpleado=Empleado()
 UnitaSucursal=Sucursal()
 
+
 dictSucursal = conexion.run("SELECT * FROM Sucursal")
 
 listaSucursal = []
@@ -25,6 +26,11 @@ class Quejitas(object):
     idSucursal = None
     NombreSucursal = None
     DireccionSucursal = None
+    MenuComida=None
+    Queja=None
+    Sucursal=None
+
+
 
     def deserealizar(self, DiccionarioSucursal):
         self.idSucursal = DiccionarioSucursal["idSucursal"]
@@ -33,18 +39,29 @@ class Quejitas(object):
 
 
 
+    def AgregarQuejon(self, queja, menu, sucursal):
+            self.Queja = queja
+            self.MenuComida = menu
+            self.Sucursal = sucursal
 
+            print(("INSERT INTO Clientes VALUES (NULL,'" + self.Queja + "','" + self.MenuComida + "','" + str(self.Sucursal) + "');"))
+
+            conexion.run("INSERT INTO Clientes VALUES (NULL,'" + self.Queja + "','" + self.MenuComida + "','" + str(self.Sucursal) + "');")
+
+Quejon=Quejitas()
 app = Flask(__name__)
-
 
 @app.route("/Quejas",methods=["GET","POST"])
 def AgregarQueja():
+    print(listaSucursal)
+    return render_template("Quejas.html", lista=listaSucursal)
+
+@app.route("/QuejasCompleto",methods=["GET","POST"])
+def QuejasCompleto():
     queja = request.form.get("queja")
     menu = request.form.get("menu")
     sucursal=request.form.get("sucursal")
-
-    DB.run("INSERT INTO Clientes VALUES (NULL,'"+queja+"','"+menu+"','"+sucursal+"');")
-
+    Quejon.AgregarQuejon(queja,menu,sucursal)
     return render_template("Quejas.html",lista=listaSucursal)
 
 
